@@ -1,6 +1,6 @@
 package br.com.senai.api.controller;
 
-import br.com.senai.domain.model.AuthenticationRensonse;
+import br.com.senai.domain.model.AuthenticationResponse;
 import br.com.senai.domain.model.Usuario;
 import br.com.senai.security.ImplementsUserDetailsService;
 import br.com.senai.security.JWTUtil;
@@ -35,7 +35,7 @@ public class LoginController {
         final UserDetails userDetails = implementsUserDetailsService.loadUserByUsername(
                 usuario.getUsername());
         final String jwt = jwtUtil.generateToken(userDetails);
-        return ResponseEntity.ok(new AuthenticationRensonse(jwt));
+        return ResponseEntity.ok(new AuthenticationResponse(jwt));
 
     }
 
